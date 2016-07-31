@@ -1,0 +1,10 @@
+*.swp
+log/
+dist/
+tmp/
+.sass-cache/
+*.sublime-workspace
+*.sublime-project
+node_modules/
+private
+haoduoshipin.tar.gz
