@@ -29,6 +29,16 @@ class App extends Component {
             })
           })
   }
+  componentDidMount(){
+    github.getGithubInfo('a-people')
+          .then((res)=>{
+            this.setState({
+              user: res.user,
+              repos: res.repos
+            })
+          })
+  }
+
   render(){
     const styles={
       root:{
