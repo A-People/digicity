@@ -4,7 +4,6 @@ import UserInfo from './user/UserInfo'
 import Repos from './user/Repos'
 import isEmpty from 'lodash/fp/isEmpty'
 import github from './utils/github'
-import pic from '../images/3.jpg'
 import CircularProgress from 'material-ui/CircularProgress'
 
 class About extends React.Component {
@@ -28,7 +27,7 @@ class About extends React.Component {
       root:{
         textAlign:'center',
         height:'100vh',
-        background:`url(${pic}) center center`
+        background:`url(https://raw.githubusercontent.com/A-People/digicity/master/blogs/src/images/3.jpg) center center`
       },
       title:{
         color:'#fff',

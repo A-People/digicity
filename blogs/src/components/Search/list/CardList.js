@@ -1,22 +1,25 @@
 import React from 'react'
 import Card from './Card'
 import map from 'lodash/fp/map'
+import axios from 'axios'
 
-let arrData=[
-  {title:'ASDXC',date:'2016.01.01'},
-  {title:'VWVQV',date:'2016.01.02'},
-  {title:'CVWRQ',date:'2016.01.03'},
-  {title:'XCQQWD',date:'2016.01.04'},
-  {title:'DQCWDQ',date:'2016.01.05'},
-  {title:'XAQSQ',date:'2016.01.06'},
-  {title:'XCQEQS',date:'2016.01.07'},
-  {title:'你好你好',date:'2016.01.04'},
-  {title:'大家好好你好',date:'2016.01.04'},
-]
+let arrData=[]
 
 class CardList extends React.Component {
   constructor(props) {
     super(props)
+    this.state={
+      isDataOK:false
+    }
+  }
+  componentDidMount(){
+    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/public.json?v=${Math.random()}`)
+    .then((res)=>{
+      arrData=res.data
+      this.setState({
+        isDataOK:true
+      })
+    })
   }
   render () {
     // let CardGroup3=[]
@@ -25,7 +28,7 @@ class CardList extends React.Component {
     //     CardGroup3.push(<Card {...arrData[i]} key={i} index={i+1}/>)
     //   }
     // }
-
+    console.log(arrData);
     let CardGroup=arrData.map(function(item,index){
       return(
         <Card {...item} key={index} index={index+1}/>

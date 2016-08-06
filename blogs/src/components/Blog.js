@@ -1,5 +1,4 @@
 import React from 'react'
-import pic from '../images/5.jpg'
 import SearchIndex from './Search/SearchIndex'
 
 class Blog extends React.Component {
@@ -9,7 +8,7 @@ class Blog extends React.Component {
         textAlign:'center',
         height:'100vh',
         overflow: 'auto',
-        background:`url(${pic}) center center`
+        background:`url(https://raw.githubusercontent.com/A-People/digicity/master/blogs/src/images/5.jpg) center center`
       },
       title:{
         color:'#fff',

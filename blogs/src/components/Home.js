@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
-import pic from '../images/4.jpg'
 
 class Home extends React.Component {
   render () {
     let styles={
       root:{
-        background: `url(${pic}) no-repeat fixed center center/cover`,
+        background: `url(https://raw.githubusercontent.com/A-People/digicity/master/blogs/src/images/4.jpg) no-repeat fixed center center/cover`,
         display:'flex',
         flexDirection:'column',
         textAlign:'center'
