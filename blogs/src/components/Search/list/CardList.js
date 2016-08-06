@@ -13,13 +13,13 @@ class CardList extends React.Component {
     }
   }
   componentDidMount(){
-    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/public.json?v=${Math.random()}`)
-    .then((res)=>{
-      arrData=res.data
-      this.setState({
-        isDataOK:true
-      })
-    })
+    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/public.json?v=${Math.random()}`)//加上随机数，是为了解决同一地址缓存带来的数据不会更新的问题
+          .then((res)=>{
+            arrData=res.data
+            this.setState({
+              isDataOK:true
+            })
+          })
   }
   render () {
     // let CardGroup3=[]
@@ -28,7 +28,6 @@ class CardList extends React.Component {
     //     CardGroup3.push(<Card {...arrData[i]} key={i} index={i+1}/>)
     //   }
     // }
-    console.log(arrData);
     let CardGroup=arrData.map(function(item,index){
       return(
         <Card {...item} key={index} index={index+1}/>
