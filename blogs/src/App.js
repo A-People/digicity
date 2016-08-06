@@ -1,16 +1,17 @@
 import React from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import GetMarkdowm from './GetMarkdowm'
+import { Link } from 'react-router';
+import NavBar from './components/NavBar'
 
 class App extends React.Component {
   getChildContext() {
     return {muiTheme: getMuiTheme()};
   }
   render () {
-
     return(
       <div>
-        <GetMarkdowm/>
+        <NavBar/>
+        {this.props.children}
       </div>
     )
   }

@@ -20,6 +20,9 @@ class Dot extends React.Component {
     })
     this.props.callbackParent(this.props.index)
   }
+  componentWillReceiveProps(){
+    //console.log(nextProps.isActive);
+  }
   render(){
     let styles={
       root:{

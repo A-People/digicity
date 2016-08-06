@@ -3,7 +3,7 @@ import Dot from './Dot'
 
 let DotGroup=[]
 
-class Circles extends React.Component {
+class Dots extends React.Component {
   constructor(){
     super()
     for(let i=0;i<4;i++){
@@ -14,7 +14,15 @@ class Circles extends React.Component {
     this.props.callbackParent(index)
   }
   componentWillReceiveProps(nextProps){
-    console.log(nextProps.activeIndex);
+    console.log(nextProps.activeIndex)
+    DotGroup=DotGroup.map(function(item,i){
+      if(nextProps.activeIndex==i){
+        DotGroup[i].isActive=true
+      }else{
+        DotGroup[i].isActive=false
+      }
+      return DotGroup[i]
+    })
     //DotGroup[nextProps.activeIndexs].props.active=true
   }
   render(){
@@ -34,4 +42,4 @@ class Circles extends React.Component {
 }
 
 
-export default Circles
+export default Dots

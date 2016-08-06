@@ -4,7 +4,7 @@ import Pic2 from './images/2.jpg'
 import Pic3 from './images/3.jpg'
 import Pic4 from './images/4.jpg'
 import Radium from 'radium'
-import Circles from './Circles'
+import Dots from './Dots'
 
 class Carousel extends React.Component {
   constructor(){
@@ -59,7 +59,9 @@ class Carousel extends React.Component {
     return(
       <div>
         <div style={styles.root} onMouseOver={this.stop.bind(this)} onMouseOut={this.continue.bind(this)}>
-          <div style={styles.circles}><Circles callbackParent={this.onChildChanged.bind(this)}/></div>
+          <div style={styles.circles}>
+            <Dots callbackParent={this.onChildChanged.bind(this)} activeIndex={this.state.index}/>
+          </div>
           <div style={styles.inner}>
             <img style={styles.pic} src={Pic1}/>
             <img style={styles.pic} src={Pic2}/>
