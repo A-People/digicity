@@ -4,7 +4,6 @@ import {hashHistory} from 'react-router'
 
 class Card extends React.Component {
   handleClick(){
-    console.log(hashHistory);
     hashHistory.push(`blog/${this.props.title}`)
   }
   render () {

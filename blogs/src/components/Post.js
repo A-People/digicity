@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import highlight from 'highlight.js'
+import marked from 'marked'
 
 class Post extends React.Component {
   constructor(props) {
@@ -10,11 +12,18 @@ class Post extends React.Component {
     this.getMD(this.props)
   }
   getMD(nextProps){
-    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/_public-resourse/${nextProps.params.title}.md?v=${Math.random()}`)
+    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/blogs/_public-resourse/${nextProps.params.title}.md?v=${Math.random()}`)
     .then((res)=>{
       this.setState({
         md:res.data
       })
+    })
+  }
+  componentDidMount(){
+    marked.setOptions({
+      highlight: function (code) {
+        return highlight.highlightAuto(code).value;
+      }
     })
   }
   componentWillReceiveProps(nextProps){
@@ -31,8 +40,7 @@ class Post extends React.Component {
       }
     }
     return(
-      <div style={styles.root}>
-        {this.state.md}
+      <div style={styles.root} dangerouslySetInnerHTML={{__html:marked(this.state.md)}}>
       </div>
     )
   }
