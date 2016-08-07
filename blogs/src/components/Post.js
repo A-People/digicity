@@ -1,6 +1,22 @@
 import React from 'react'
+import axios from 'axios'
 
 class Post extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      md:(<div></div>)
+    }
+  }
+  componentDidMount(){
+    let md
+    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/_public-resourse/${this.props.params.title}.md`)
+    .then((res)=>{
+      this.setState({
+        md:res.data
+      })
+    })
+  }
   render () {
     const styles={
       root:{
@@ -12,12 +28,8 @@ class Post extends React.Component {
       }
     }
     return(
-      axios.get('')
-            .then((res)=>{
-              
-            })
       <div style={styles.root}>
-        {this.props.params.title}
+        {this.state.md}
       </div>
     )
   }
