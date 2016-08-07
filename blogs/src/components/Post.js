@@ -10,7 +10,7 @@ class Post extends React.Component {
   }
   componentDidMount(){
     let md
-    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/_public-resourse/${this.props.params.title}.md`)
+    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/_public-resourse/${this.props.params.title}.md?v=${Math.random()}`)
     .then((res)=>{
       this.setState({
         md:res.data
