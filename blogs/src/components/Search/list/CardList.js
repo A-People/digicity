@@ -13,7 +13,7 @@ class CardList extends React.Component {
     }
   }
   componentDidMount(){
-    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/public.json?v=${Math.random()}`)//加上随机数，是为了解决同一地址缓存带来的数据不会更新的问题
+    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/public-resourse/public.json?v=${Math.random()}`)//加上随机数，是为了解决同一地址缓存带来的数据不会更新的问题
           .then((res)=>{
             arrData=res.data
             this.setState({
