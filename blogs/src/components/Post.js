@@ -2,12 +2,13 @@ import React from 'react'
 import axios from 'axios'
 import highlight from 'highlight.js'
 import marked from 'marked'
+import 'highlight.js/styles/default.css'
 
 class Post extends React.Component {
   constructor(props) {
     super(props)
     this.state={
-      md:null
+      md:''
     }
     this.getMD(this.props)
   }
@@ -34,13 +35,13 @@ class Post extends React.Component {
       root:{
         textAlign:'center',
         height:'100vh',
-        color:'#fff',
-        fontSize:'50px',
-        background:`url(https://raw.githubusercontent.com/A-People/digicity/master/blogs/src/images/5.jpg) center center`
+        backgroundColor:'#ddd'
       }
     }
     return(
-      <div style={styles.root} dangerouslySetInnerHTML={{__html:marked(this.state.md)}}>
+      <div style={styles.root}>
+        <div style={{display:'table'}}></div>
+        <div dangerouslySetInnerHTML={{__html:marked(this.state.md)}}></div>
       </div>
     )
   }

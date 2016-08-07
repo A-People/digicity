@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import highlight from 'highlight.js'
 import marked from 'marked'
-import './default.css'
+import 'highlight.js/styles/default.css'
 import axios from 'axios'
 
 class GetMarkdowm extends React.Component {
@@ -12,7 +12,7 @@ class GetMarkdowm extends React.Component {
     }
   }
   componentDidMount(){
-    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/markdown/public/test.md`)
+    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/blogs/_public-resourse/a.md`)
       .then((res)=>{
         this.setState({
           md:res.data
