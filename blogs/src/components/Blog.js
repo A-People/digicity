@@ -8,7 +8,8 @@ class Blog extends React.Component {
         textAlign:'center',
         height:'100vh',
         overflow: 'auto',
-        background:`url(https://raw.githubusercontent.com/A-People/digicity/master/blogs/src/images/5.jpg) center center`
+        //background:`url(https://raw.githubusercontent.com/A-People/digicity/master/blogs/src/images/5.jpg) center center`
+        background:`url(http://4493bz.1985t.com/uploads/allimg/141014/3-141014104948.jpg) center center`
       },
       title:{
         color:'#fff',

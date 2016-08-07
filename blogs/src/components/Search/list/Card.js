@@ -4,7 +4,9 @@ import {hashHistory} from 'react-router'
 
 class Card extends React.Component {
   handleClick(){
-    hashHistory.push(`blog/${this.props.title}`)
+    //hashHistory.push(`blog/${this.props.title}`)
+    console.log(this.context.router);
+    this.context.router.push(`blog/${this.props.title}`)
   }
   render () {
     let styles={
@@ -52,6 +54,10 @@ class Card extends React.Component {
       </div>
     )
   }
+}
+
+Card.contextTypes = {
+  router: React.PropTypes.object.isRequired,
 }
 
 export default Radium(Card)
