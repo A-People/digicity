@@ -5,17 +5,20 @@ class Post extends React.Component {
   constructor(props) {
     super(props)
     this.state={
-      md:(<div></div>)
+      md:null
     }
+    this.getMD(this.props)
   }
-  componentDidMount(){
-    let md
-    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/_public-resourse/${this.props.params.title}.md?v=${Math.random()}`)
+  getMD(nextProps){
+    axios.get(`https://raw.githubusercontent.com/A-People/digicity/master/_public-resourse/${nextProps.params.title}.md?v=${Math.random()}`)
     .then((res)=>{
       this.setState({
         md:res.data
       })
     })
+  }
+  componentWillReceiveProps(nextProps){
+    this.getMD(nextProps)
   }
   render () {
     const styles={
